@@ -9,6 +9,7 @@ public class MemberVO {
 	  USERPASS  VARCHAR2(100) NOT NULL,
 	  USERNAME  VARCHAR2(40) NOT NULL,
 	  REGDATE DATE DEFAULT SYSDATE,
+	  VERIFY NUMBER DEFAULT 0,
 	  PRIMARY KEY(USERID)
 	);
 	*/
@@ -17,6 +18,7 @@ public class MemberVO {
 	private String userPass;
 	private String userName;
 	private Date regdate;
+	private int verify;		// 관리자&사용자 구분
 	
 	public String getUserId() {
 		return userId;
@@ -42,10 +44,17 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	public int getVerify() {
+		return verify;
+	}
+	public void setVerify(int verify) {
+		this.verify = verify;
+	}
+	
 	@Override
 	public String toString() {
 		return "MemberVO [userId=" + userId + ", userPass=" + userPass + ", userName=" + userName + ", regdate="
-				+ regdate + "]";
+				+ regdate + ", verify=" + verify + "]";
 	}
 	
 	
