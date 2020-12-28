@@ -18,8 +18,11 @@
 	<!-- list.jsp 시작 -->
 	<div class="container">
 		<h1 class="mt-5">게시판</h1>
+		<%-- 글쓰기 버튼 --%>
+		<a href="/board/writeView" class="btn btn-primary my-1 float-right">글쓰기</a>
+		
 		<section>
-			<form role="form" method="get" action="/board/list" class="form-list mt-4">
+			<form role="form" method="get" action="/board/list" class="form-list ">
 				<!-- 목록 START -->
 				<table class="table table-hover">
 					<!-- 목록 이름 START-->

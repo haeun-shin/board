@@ -65,7 +65,7 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", false);
 		}
 		
-		return "redirect:/";
+		return "redirect:/board/list";
 	}
 	
 	// 로그아웃

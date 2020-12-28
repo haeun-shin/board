@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ReplyVO {
 	/**
-	create table mp_reply (
+	create table he_reply (
 	    bno number not null,
 	    rno number not null,
 	    content varchar2(1000) not null,
@@ -12,6 +12,11 @@ public class ReplyVO {
 	    regdate date default sysdate,
 	    primary key(bno, rno)
 	);
+	
+	alter table he_reply add constraint he_reply_bno foreign key(bno)
+	references he_board(bno);
+	
+	create sequence he_reply_seq START WITH 1 MINVALUE 0;
 	*/
 	
 	private int bno;

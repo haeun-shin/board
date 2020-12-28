@@ -23,6 +23,13 @@
 	
 	<context:component-scan base-package="kr.co.controller" />
 	
-	
+	<!-- 로그인 인터셉터 -->
+	<beans:bean id="LoginInterceptor" class="kr.co.common.interceptor.LoginInterceptor"></beans:bean>
+    <interceptors>
+        <interceptor>
+            <mapping path="/board/*"/>
+            <beans:ref bean="LoginInterceptor"/>
+        </interceptor>
+    </interceptors>
 	
 </beans:beans>

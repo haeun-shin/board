@@ -28,9 +28,6 @@
       <li class="nav-item">
         <a class="nav-link" href="/board/list">게시판</a>
       </li>
-      <li class="nav-item">
-      	<a class="nav-link" href="/board/writeView">글 작성</a>
-      </li>
     </ul>
     <span class="navbar-text">
       <!-- 로그인 상태가 아닐 때 -->
@@ -42,6 +39,7 @@
       <c:if test="${member != null }">
 			${member.userId }님 안녕하세요.  
 			<a class="btn btn-sm btn-secondary my-2 my-sm-0 ml-2" href="/member/logout" style="color:#fff">로그아웃</a>
+			<a class="btn btn-sm btn-success my-2 my-sm-0 ml-2" href="/member/memberUpdateView" style="color:#fff">회원정보수정</a>
       </c:if>
     </span>
   </div>
