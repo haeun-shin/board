@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%-- 네비게이션 바 --%>
-	<%@include file="nav.jsp" %>
+	<%@include file="../include/nav.jsp" %>
 	
 	<!-- list.jsp 시작 -->
 	<div class="container">

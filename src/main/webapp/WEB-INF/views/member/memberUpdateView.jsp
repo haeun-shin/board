@@ -43,7 +43,7 @@
 </head>
 <body>
 	<!-- 네비게이션 바 -->
-	<%@include file="../board/nav.jsp" %>
+	<%@include file="../include/nav.jsp" %>
 	
 		<form action="/member/memberUpdate" method="post" id="updateForm" style="width:600px; margin:30px auto;">
 		<div class="card" >

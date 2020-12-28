@@ -30,7 +30,7 @@
 </head>
 <body>
 <%-- 네비게이션 바 --%>
-<%@include file="nav.jsp" %>
+<%@include file="../include/nav.jsp" %>
 
 <div class="mb-4"></div>
 

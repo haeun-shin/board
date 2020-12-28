@@ -32,7 +32,7 @@
 </head>
 <body>
 	<!-- 네비게이션 바 -->
-	<%@include file="board/nav.jsp" %>
+	<%@include file="include/nav.jsp" %>
 	
 	<form name="homeFrom" method="post" action="/member/login" style="width:600px; margin:30px auto;">
 		<c:if test="${msg == false }">
