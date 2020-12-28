@@ -1,0 +1,65 @@
+body {
+	width:100%;
+}
+textarea.form-control:focus {
+	outline:none !important;
+	box-shadow: none;
+	border: none;
+}
+textarea.form-control {
+	border: none;
+}
+/* 네비게이션 바 start */
+.nav-wrap {
+	display: inline-block;
+	width:100%;
+}
+.navbar {
+	width:1200px !important;
+	margin:0 auto;
+}
+/* 네비게이션 바 end */
+
+.container {
+	max-width:1200px !important;
+	margin:0 auto !important;
+}
+
+/* list.jsp */
+.form-list > .table {
+	width:100%;	
+}
+/* .form-list .table thead th {
+	border-bottom: none !important;
+} */
+
+
+/* writeView.jsp */
+section.write-con {
+	min-height: 700px !important;
+}
+section.write-con > form {
+	overflow:hidden;
+}
+/* 제목 */
+section.write-con .title {
+	border:none;
+    padding: 0.7rem 0;
+    border-bottom: 2px solid #e4e4e4;
+}
+section.write-con .title:focus {
+	outline:none;
+}
+/* 내용 */
+section.write-con #content {
+	padding: 0.5rem 0.5rem;
+	border: 2px solid #e4e4e4;
+}
+section.write-con #content:focus {
+	outline:none;
+}
+#fileIndex > p, #fileIndex > div {
+	clear:right;
+	margin-bottom:10px;
+}
+
