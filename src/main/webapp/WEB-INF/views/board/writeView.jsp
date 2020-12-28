@@ -47,7 +47,7 @@
 			var fileIndex = 1;
 			//$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"<button type='button' style='float:right;' id='fileAddBtn'>"+"추가"+"</button></div>");
 			$(".fileAdd_btn").on("click", function(){
-				$("#fileIndex").append("<p class='w-100'><input type='file' name='file_"+(fileIndex++)+"'>"+"</button>"+"<button type='button' id='fileDelBtn' class='btn btn-secondary btn-sm'>"+"삭제"+"</button></p>");
+				$("#fileIndex").append("<p class='w-100'><input type='file' name='file_"+(fileIndex++)+"'accept='image/*'>"+"</button>"+"<button type='button' id='fileDelBtn' class='btn btn-secondary btn-sm'>"+"삭제"+"</button></p>");
 			});
 			$(document).on("click","#fileDelBtn", function(){
 				$(this).parent().remove();

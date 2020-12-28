@@ -6,9 +6,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import kr.co.vo.BoardVO;
 
 @Component("fileUtils")
@@ -31,8 +36,10 @@ public class FileUtils {
 	 NOMAXVALUE NOCACHE;
 	*/
 	
-	private static final String filePath = "C:\\mp\\file\\"; // 파일이 저장될 위치
-	
+	//private static final String filePath = "C:\\HE_Board\\file\\"; // 파일이 저장될 위치
+	/* servlet-context.xml에서 설정했던 uploadPath */
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	// 파일 업로드
 	public List<Map<String, Object>> parseInsertFileInfo(BoardVO boardVO, 
@@ -56,7 +63,7 @@ public class FileUtils {
 		
 		int bno = boardVO.getBno();
 		
-		File file = new File(filePath);
+		File file = new File(uploadPath + File.separator + "imgUpload" + File.separator);
 		if(file.exists() == false) {
 			file.mkdirs();
 		}
@@ -68,7 +75,7 @@ public class FileUtils {
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
 				storedFileName = getRandomString() + originalFileExtension;
 				
-				file = new File(filePath + storedFileName);
+				file = new File(uploadPath + File.separator + "imgUpload" + File.separator + storedFileName);
 				multipartFile.transferTo(file);
 				listMap = new HashMap<String, Object>();
 				listMap.put("BNO", bno);
@@ -102,7 +109,7 @@ public class FileUtils {
 				originalFileName = multipartFile.getOriginalFilename(); 
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf(".")); 
 				storedFileName = getRandomString() + originalFileExtension; 
-				multipartFile.transferTo(new File(filePath + storedFileName)); 
+				multipartFile.transferTo(new File(uploadPath  + File.separator + "imgUpload" + File.separator + storedFileName)); 
 				listMap = new HashMap<String,Object>();
 				listMap.put("IS_NEW", "Y");
 				listMap.put("BNO", bno); 

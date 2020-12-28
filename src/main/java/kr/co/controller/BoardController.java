@@ -5,6 +5,7 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,6 +37,9 @@ public class BoardController {
 	BoardService service;
 	@Inject
 	ReplyService replyService;
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	// 게시판 글 작성 화면
 	@RequestMapping(value = "/board/writeView", method = RequestMethod.GET)
@@ -320,7 +324,7 @@ public class BoardController {
 		String originalFileName = (String) resultMap.get("ORG_FILE_NAME");
 		
 		// 파일을 저장했던 위치에 첨부파일을 읽어 byte[] 형식으로 변환한다.
-		byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File("C:\\mp\\file\\" + storedFileName));
+		byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File(uploadPath + File.separator + "imgUpload" + File.separator + storedFileName));
 		
 		response.setContentType("application/octet-stream");
 		response.setContentLength(fileByte.length);

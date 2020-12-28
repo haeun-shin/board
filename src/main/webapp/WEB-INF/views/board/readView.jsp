@@ -115,6 +115,11 @@
 			
 			<hr>
 			
+			<%-- 이미지 --%>
+			<c:forEach var="file" items="${file }">
+				<img src="${contextPath }/resources/imgUpload/${file.STORED_FILE_NAME }" />
+			</c:forEach>
+			
 			<%-- 내용 : 개행문자를 br태그로 변경하여 출력 --%>
 			<p class="text-justify  ml-1">${fn:replace(read.content, replaceChar, br )}</p>
 			
@@ -128,7 +133,6 @@
 				<button type="button" class="list_btn btn btn-outline-primary">목록</button>	
 			</div>
 		<!-- 본문내용 END -->
-		
 		<div  style="clear:both"></div>
 		
 		<!-- 첨부파일 START -->

@@ -1,6 +1,11 @@
 body {
 	width:100%;
 }
+
+img {
+	max-width:800px;
+}
+
 textarea.form-control:focus {
 	outline:none !important;
 	box-shadow: none;

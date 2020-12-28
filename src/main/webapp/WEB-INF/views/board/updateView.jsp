@@ -59,7 +59,7 @@
 		var fileIndex = 1;
 		//$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"<button type='button' style='float:right;' id='fileAddBtn'>"+"추가"+"</button></div>");
 		$(".fileAdd_btn").on("click", function(){
-			$("#fileIndex").append("<div><input type='file' name='file_"+(fileIndex++)+"'>"+"</button>"+"<button type='button' id='fileDelBtn' class='btn btn-secondary btn-sm'>"+"삭제"+"</button></div>");
+			$("#fileIndex").append("<div><input type='file' name='file_"+(fileIndex++)+"' accept='image/*'>"+"</button>"+"<button type='button' id='fileDelBtn' class='btn btn-secondary btn-sm'>"+"삭제"+"</button></div>");
 		});
 		$(document).on("click","#fileDelBtn", function(){
 			$(this).parent().remove();
@@ -86,7 +86,7 @@
 <div class="mb-4"></div>
 		
 <section class="container border pb-3 write-con">
-	<form name="updateForm" role="form" method="post" action="/board/update" enctype="multipart/form-data">
+	<form name="updateForm" role="form" method="post" action="/board/update" enctype="multipart/form-data" accept="image/*">
 		<input type="hidden" name="bno" value="${update.bno}" readonly="readonly"/>
 		<input type="hidden" id="page" name="page" value="${scri.page}"> 
 		<input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 

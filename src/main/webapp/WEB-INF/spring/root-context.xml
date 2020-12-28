@@ -36,6 +36,11 @@
     
     <tx:annotation-driven transaction-manager="transactionManager" />
     
+    <!-- 파일 업로드 경로 -->
+    <bean class="java.lang.String" id="uploadPath">
+		<constructor-arg value="E:\#works\Spring\board\src\main\webapp\resources" />
+	</bean>
+    
     <!-- scan -->
     <context:component-scan base-package="kr.co.service"></context:component-scan>
     <context:component-scan base-package="kr.co.dao"></context:component-scan>

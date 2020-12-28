@@ -21,7 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="kr.co.controller" />
 	
 	<!-- 로그인 인터셉터 -->
 	<beans:bean id="LoginInterceptor" class="kr.co.common.interceptor.LoginInterceptor"></beans:bean>
@@ -32,4 +31,5 @@
         </interceptor>
     </interceptors>
 	
+	<context:component-scan base-package="kr.co.controller" />
 </beans:beans>
