@@ -37,7 +37,17 @@
       
       <!-- 로그인 상태일 때 -->
       <c:if test="${member != null }">
-			${member.userId }님 안녕하세요.  
+      	<c:choose>
+      		<%-- 관리자 --%>
+      		<c:when test="${member.verify == 9 }">
+      			${member.userId } 관리자님 안녕하세요.
+      		</c:when>
+      		<%-- 사용자 --%>
+      		<c:otherwise>
+      			${member.userId }님 안녕하세요.
+      		</c:otherwise>
+      	</c:choose>
+			  
 			<a class="btn btn-sm btn-secondary my-2 my-sm-0 ml-2" href="/member/logout" style="color:#fff">로그아웃</a>
 			<a class="btn btn-sm btn-success my-2 my-sm-0 ml-2" href="/member/memberUpdateView" style="color:#fff">회원정보수정</a>
       </c:if>

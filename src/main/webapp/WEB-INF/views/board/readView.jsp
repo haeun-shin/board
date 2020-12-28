@@ -109,7 +109,7 @@
 			<h2 class="mt-3">${read.title}</h2>
 			<%-- 작성자, 작성일 --%>
 			<p class="h6 ml-1">
-				<strong>글쓴이</strong>  ${read.writer}   
+				<strong>글쓴이</strong> ${read.writer} 
 				<span class="font-weight-light text-secondary"><fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd hh:mm:ss" /></span>
 			</p>
 			
@@ -120,8 +120,8 @@
 			
 			<%-- 수정, 삭제, 목록 버튼 모음 --%>
 			<div class="float-right mb-3">
-				<%-- 글 작성자와 로그인 아이디가 같을 경우에만 글 수정 가능 --%>
-				<c:if test="${read.writer == member.userId }" >
+				<%-- 글 작성자와 로그인 아이디가 같을 경우에만 글 수정 가능 + 관리자 --%>
+				<c:if test="${read.writer == member.userId || member.verify == 9}" >
 					<button type="button" class="update_btn btn btn-outline-success">수정</button>
 					<button type="button" class="delete_btn btn btn-outline-secondary">삭제</button>
 				</c:if>
@@ -159,8 +159,8 @@
 							<%-- 댓글 작성자, 작성일 --%>
 							<span class="font-weight-bold pr-2">${replyList.writer }</span>
 							<span class="text-black-50" style="font-size:0.8em;"><fmt:formatDate value="${replyList.regdate }" pattern="yyyy-MM-dd" /></span>
-							<%-- 수정 삭제 버튼 : 작성자와 로그인 아이디가 일치할 경우 생성--%>
-							<c:if test="${replyList.writer == member.userId }">
+							<%-- 수정 삭제 버튼 : 작성자와 로그인 아이디가 일치할 경우 생성 + 관리자 --%>
+							<c:if test="${replyList.writer == member.userId || member.verify == 9}">
 							<span>
 								<button type="button" class="replyUpdateBtn btn btn-success btn-sm" data-rno="${replyList.rno }">수정</button>
 								<button type="button" class="replyDeleteBtn btn btn-secondary btn-sm" data-rno="${replyList.rno }">삭제</button>
