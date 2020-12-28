@@ -35,7 +35,7 @@
 			var regForm = $("form[name='writeForm'] .chk").length;
 			
 			for(var i = 0; i<regForm; i++){
-				if($(".chk").eq(i).val() == "" || $(".chk").eq(i).val() == null){
+				if($(".chk").eq(i).val().trim() == "" || $(".chk").eq(i).val().trim() == null){
 					alert($(".chk").eq(i).attr("title"));
 					return true;
 				}

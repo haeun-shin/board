@@ -45,6 +45,9 @@
 		
 		// 댓글 작성 값들이 replyWrite로 전달되게끔 하는 함수
 		$(".replyWriteBtn").on("click", function(){
+			  if(fn_valiChk()){
+					return false;
+  			  }
 			  var formObj = $("form[name='replyForm']");
 			  formObj.attr("action", "/board/replyWrite");
 			  formObj.submit();
@@ -80,6 +83,15 @@
 		
 		formObj.attr("action", "/board/fileDown");
 		formObj.submit();
+	}
+	
+	// 벨리데이션 체크
+	function fn_valiChk(){
+		var replyForm = $("form[name='replyForm'] .chk");
+		if(replyForm.val().trim() == "" || replyForm.val().trim() == null){
+			alert('댓글을 입력하세요.');
+			return true;
+		}
 	}
 </script>
 <% 
@@ -191,7 +203,7 @@
 				<c:choose>
 					<c:when test="${not empty member.userId }">
 						<div class="form-group shadow-sm p-3 bg-white rounded">
-							<textarea placeholder="댓글을 입력하세요." id="content" name="content" class="form-control" style="border:none;resize: none;" maxlength="333" ></textarea>
+							<textarea placeholder="댓글을 입력하세요." id="content" name="content" class="form-control chk" style="border:none;resize: none;" maxlength="333" ></textarea>
 							<button type="button" class="replyWriteBtn btn btn-primary ml-auto">작성</button>
 						</div>
 					</c:when>

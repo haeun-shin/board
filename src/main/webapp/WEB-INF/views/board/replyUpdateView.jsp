@@ -25,7 +25,26 @@
 					   + "&keyword=${scri.keyword}";
 			})
 			
+			// 벨리데이션 체크
+			function fn_valiChk(){
+				var updateFormChk = $("form[name='updateForm'] .chk");
+				if(updateFormChk.val().trim() == "" || updateFormChk.val().trim() == null){
+					alert('댓글을 입력하세요.');
+					return true;
+				}
+				
+			}
+			
+			$(".update_btn").on("click", function(){
+				if(fn_valiChk()) {
+					return false;
+				}
+				
+				formObj.submit();
+			})
 		})
+		
+		
 	</script>
 </head>
 <body>
@@ -44,8 +63,9 @@
 		<input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
 		
 		<div class="form-group shadow-sm p-3 bg-white rounded">
-			<textarea placeholder="댓글을 입력하세요." id="content" name="content" class="form-control" style="resize: none;" maxlength="333" rows="6"><c:out value="${replyUpdate.content}" /></textarea>
-			<button type="submit" class="update_btn btn btn-primary">수정</button>
+			<textarea placeholder="댓글을 입력하세요." id="content" name="content" class="form-control chk" style="resize: none;" maxlength="333" rows="6"><c:out value="${replyUpdate.content}" /></textarea>
+			<!-- <button type="submit" class="update_btn btn btn-primary">수정</button> -->
+			<button type="button" class="update_btn btn btn-primary" onClick="fn_valiChk();">수정</button>
 			<button type="button" class="cancel_btn btn btn-outline-secondary">취소</button>
 		</div>
 		
