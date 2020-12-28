@@ -19,6 +19,9 @@
 			location.href="/";
 		});
 		
+		// 이름 정규식표현 (2~6글자의 한글만 가능)
+		var namePattern = /^[가-힣]{2,6}$/;
+		
 		// 벨리데이션 체크
 		$("#submit").on("click", function() {
 			if($("#userPass").val() == "") {
@@ -33,6 +36,12 @@
 				
 				return false;
 			}
+			
+			if(namePattern.test($("#userName").val()) == false){
+				alert("이름을 잘못 입력하셨습니다.\n2~5글자의 한글만 사용하실 수 있습니다.");
+				
+				return false;
+		    }
 			
 		});
 		

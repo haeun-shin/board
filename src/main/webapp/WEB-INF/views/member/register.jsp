@@ -18,6 +18,9 @@
 			location.href="/";
 		});
 		
+		// 이름 정규식표현 (2~6글자의 한글만 가능)
+		var namePattern = /^[가-힣]{2,6}$/;
+
 		// 벨리데이션 체크
 		$("#submit").on("click", function() {
 			if($("#userId").val() == "") {
@@ -26,6 +29,7 @@
 				
 				return false;
 			}
+			
 			
 			if($("#userPass").val() == "") {
 				alert("비밀번호를 입력해주세요.");
@@ -41,6 +45,12 @@
 				return false;
 			}
 			
+			if(namePattern.test($("#userName").val()) == false){
+				alert("이름을 잘못 입력하셨습니다.\n2~5글자의 한글만 사용하실 수 있습니다.");
+				
+				return false;
+		    }
+			
 			// 아이디 중복 체크
 			var idChkVal = $("#idChk").val();
 			if(idChkVal == "N") {
@@ -51,16 +61,27 @@
 				$("#regForm").submit();
 			}
 			
+			
+			
 		 }); // 벨리데이션 체크 끝
 	}); // 스크립트 끝
 	
 	function fn_idChk() {
+		// 아이디 정규표현식
+		var idPattern = /^[A-Za-z]{1}[A-Za-z0-9]{3,19}$/;
 		$.ajax({
 			url : "/member/idChk",
 			type : "POST",
 			dataType : "json",
 			data : {"userId" : $("#userId").val()},
 			success : function(data) {
+				
+				if(idPattern.test($("#userId").val()) == false){
+					alert("아이디를 잘못 입력 하셨습니다.\n4~19글자의 영어+숫자만 사용 가능합니다.");
+					
+					return false;
+			    }
+				
 				if(data == 1){
 					alert("이미 존재하는 아이디입니다.");
 				} else if(data == 0) {
@@ -70,6 +91,8 @@
 			}
 		})
 	}
+	
+	
 </script>
 </head>
 <body>
